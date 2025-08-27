@@ -16,7 +16,10 @@ def add_watermark(image_path):
     draw = ImageDraw.Draw(watermark)
 
     font = ImageFont.truetype("arial.ttf", 36)  # You can change font and size
-    text_width, text_height = draw.textlength(watermark_text, font=font)
+    bbox = draw.textbbox((0, 0), watermark_text, font=font)
+    text_width = bbox[2] - bbox[0]
+    text_height = bbox[3] - bbox[1]
+
     position = (image.size[0] - text_width - 10, image.size[1] - text_height - 10)
 
     draw.text(position, watermark_text, font=font, fill=(255, 255, 255, 128))  # Semi-transparent white
