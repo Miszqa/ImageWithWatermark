@@ -50,6 +50,9 @@ def add_watermark(image_path):
 # GUI setup
 root = tk.Tk()
 root.title("Auto Watermark App")
+root.geometry("300x100")
+
+
 
 upload_btn = tk.Button(root, text="Upload Image", command=upload_image)
 upload_btn.pack(pady=20)
